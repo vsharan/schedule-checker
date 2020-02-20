@@ -15,13 +15,13 @@ export class UserController {
     @Get()
     getUsers(): any {
         console.log('Users Data ------- ');
-        return this.userService.createUser();
+        return this.userService.getUsers();
     }
 
     @Get('id')
     getUser(@Param() id: string): any {
         console.log('User ID ------- ', id);
-        return this.userService.createUser();
+        return this.userService.getUser();
     }
 
     @Put()

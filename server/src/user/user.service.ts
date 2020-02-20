@@ -7,7 +7,7 @@ export class UserService {
     }
 
     getUsers(): any {
-        return 'Userd Data!!';
+        return 'Users Data!!';
     }
 
     getUser(): any {
