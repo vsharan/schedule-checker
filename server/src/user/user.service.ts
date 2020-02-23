@@ -38,11 +38,11 @@ export class UserService {
         return createdSchedule.save();
     }
 
-    async userSchedules(userId: string, { fromDate, toDate }: ScheduleSearchDto): Promise<Schedule[]> {
-        const fromDateSearch = new Date(fromDate).setHours(0, 0, 0, 0);
-        const toDateSearch = new Date(toDate).setHours(23, 59, 59, 999);
-        console.log('user ID ', userId, ' fromDate --- ', fromDateSearch, ' toDate -- ', toDateSearch);
-        const data = await this.scheduleModel.find({ userId, from: { '$gte': fromDateSearch }, to: { '$lte': toDateSearch } }).exec();
+    async userSchedules(userId: string, { startTime, endTime }: ScheduleSearchDto): Promise<Schedule[]> {
+        const fromDateSearch = new Date(startTime).setHours(0, 0, 0, 0);
+        const toDateSearch = new Date(endTime).setHours(23, 59, 59, 999);
+        console.log('user ID ', userId, ' fromDate --- ', fromDateSearch, ' endTime -- ', toDateSearch);
+        const data = await this.scheduleModel.find({ userId, startTime: { '$gte': fromDateSearch }, endTime: { '$lte': toDateSearch } }).exec();
         console.log(data);
         return data;
     }

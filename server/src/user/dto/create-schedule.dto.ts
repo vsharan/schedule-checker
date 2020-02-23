@@ -1,6 +1,6 @@
 export class CreateScheduleDto {
     readonly title: string;
-    readonly from: Date;
-    readonly to: Date
+    readonly startTime: Date;
+    readonly endTime: Date
     readonly userId: string;
 }
